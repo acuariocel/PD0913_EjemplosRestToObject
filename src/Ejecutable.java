@@ -32,26 +32,26 @@ public class Ejecutable extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        ljblPlaca = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jtxtPlaca = new javax.swing.JTextField();
+        jtxtColor = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Placa:");
+        ljblPlaca.setText("Placa:");
 
         jLabel2.setText("Color: ");
 
-        jTextField1.setText("LBA1234");
-        jTextField1.setToolTipText("Presione enter para buscar");
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxtPlaca.setText("LBA1234");
+        jtxtPlaca.setToolTipText("Presione enter para buscar");
+        jtxtPlaca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextField1KeyReleased(evt);
+                jtxtPlacaKeyReleased(evt);
             }
         });
 
-        jTextField2.setEditable(false);
+        jtxtColor.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,11 +63,11 @@ public class Ejecutable extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField2))
+                        .addComponent(jtxtColor))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(ljblPlaca)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jtxtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -75,12 +75,12 @@ public class Ejecutable extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ljblPlaca)
+                    .addComponent(jtxtPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtxtColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -88,24 +88,24 @@ public class Ejecutable extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+    private void jtxtPlacaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtPlacaKeyReleased
 
         if (evt.getKeyCode() == 10) {
-            if (!jTextField1.getText().isEmpty()) {
-                Autos auto = fa.jsonToObject(f.obtienePorGet("http://localhost:8080/PD0913_EjemploRest/webresources/modelo.autos/findForPlaca/placa=" + jTextField1.getText()));
+            if (!jtxtPlaca.getText().isEmpty()) {
+                Autos auto = fa.jsonToObject(f.obtienePorGet("http://localhost:8080/PD0913_EjemploRest/webresources/modelo.autos/findForPlaca/placa=" + jtxtPlaca.getText()));
                 if (auto != null) {
-                    jTextField2.setText(auto.getColor());
+                    jtxtColor.setText(auto.getColor());
                 } else {
                     JOptionPane.showMessageDialog(rootPane, "Datos no encontrados");
-                    jTextField1.setText(null);
-                    jTextField2.setText(null);
+                    jtxtPlaca.setText(null);
+                    jtxtColor.setText(null);
                 }
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Ingrese una placa");
             }
 
         }
-    }//GEN-LAST:event_jTextField1KeyReleased
+    }//GEN-LAST:event_jtxtPlacaKeyReleased
 
     /**
      * @param args the command line arguments
@@ -143,9 +143,9 @@ public class Ejecutable extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jtxtColor;
+    private javax.swing.JTextField jtxtPlaca;
+    private javax.swing.JLabel ljblPlaca;
     // End of variables declaration//GEN-END:variables
 }
